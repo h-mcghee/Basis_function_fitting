@@ -18,7 +18,7 @@ delay = matrix[0,1:]
 energy = matrix[1:,0]
 z = matrix[1:,1:]
 
-smooth = 1
+smooth = 5
 
 #Define model
 
@@ -59,4 +59,10 @@ params.add('g4_sigma', value=0.4,max = 1,vary = False)
 
 
 params.add('c', value=1,vary = False)
+
+param_names = model.param_names
+param_names = [name.split('_')[0] for name in param_names]
+param_names = np.unique(param_names)
+
+
 
